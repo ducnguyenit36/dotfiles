@@ -1,0 +1,56 @@
+" UI Configuration
+set  nu rnu
+syntax enable
+set nocompatible
+filetype plugin indent on
+set encoding=UTF-8
+set showcmd             " show command in bottom bar
+set showmatch           " highlight matching [{()}]
+set wildmenu            " visual autocomplete for command menu
+packadd! onedark.vim
+colorscheme  onedark
+if has("termguicolors")
+    set termguicolors
+endif
+set background=dark
+" Space and Tab
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+set shiftwidth=4 
+set smarttab
+set autoindent
+set smartindent     " set si
+" Searching
+set path+=**        " find global file in main directory
+set incsearch       " search as characters are entered
+set hlsearch        " highlight matches
+let mapleader=" "   " Change leader key to <space> 
+" Disable highlight searching
+nnoremap <leader> <space> :nohlsearch<CR> 
+" Auto update when file change by other editor
+set autoread
+set autowrite
+set noswapfile
+set undofile 
+set nobackup
+set undodir=~/.vim/undodir
+au FocusGained,BufEnter * :silent! checktime " Auto update file when file has chage with other text editor
+set clipboard=unnamedplus
+" HTML 5 
+autocmd FileType scss setl iskeyword+=@-@
+" Split and move
+set splitbelow
+set splitright
+"Max out the height of the current split
+"ctrl + w _
+"Max out the width of the current split
+"ctrl + w |
+"Normalize all split sizes, which is very handy when resizing terminal
+"ctrl + w =
+" Status line config
+set laststatus=2
+" SNIPPETS:
+nnoremap ,html :-1read $HOME/.vim/basic.html<CR>3jwf>a
+" Omni completion
+set omnifunc=systaxcomplete#Complete
