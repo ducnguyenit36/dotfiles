@@ -1,18 +1,22 @@
 " UI Configuration
 set  nu rnu
-syntax enable
 set nocompatible
 filetype plugin indent on
 set encoding=UTF-8
 set showcmd             " show command in bottom bar
 set showmatch           " highlight matching [{()}]
 set wildmenu            " visual autocomplete for command menu
-packadd! onedark.vim
-colorscheme  onedark
+" Syntax 
 if has("termguicolors")
     set termguicolors
 endif
+packadd! dracula
+syntax enable
+colorscheme dracula
 set background=dark
+set cursorcolumn
+set cursorline
+"let g:onedark_termcolors=256
 " Space and Tab
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -54,3 +58,25 @@ set laststatus=2
 nnoremap ,html :-1read $HOME/.vim/basic.html<CR>3jwf>a
 " Omni completion
 set omnifunc=systaxcomplete#Complete
+" Coc config
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"" VIM RAINBOW
+let g:rainbow_active=1
+let g:rainbow_load_separately = [
+    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+    \ ]
+

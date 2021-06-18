@@ -8,5 +8,5 @@
 	path = vim/pack/my-plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 [submodule "vim/pack/my-plugins/start/vim"]
-	path = vim/pack/my-plugins/start/vim
+	path = vim/pack/my-plugins/start/dracula
 	url = https://github.com/dracula/vim

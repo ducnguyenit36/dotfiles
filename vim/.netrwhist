@@ -1,3 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/ducnguyen/dev/dotfiles'
+let g:netrw_dirhist_5='/home/ducnguyen/dev/dotfiles/vim/pack/my-plugins/start'
+let g:netrw_dirhist_4='/home/ducnguyen/dev/dotfiles/vim'
+let g:netrw_dirhist_3='/etc/portage/package.mask'
+let g:netrw_dirhist_2='/etc/security/limits.d'
 let g:netrw_dirhist_1='/home/ducnguyen/.git'
