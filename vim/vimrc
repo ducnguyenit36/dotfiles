@@ -10,9 +10,8 @@ set wildmenu            " visual autocomplete for command menu
 if has("termguicolors")
     set termguicolors
 endif
-packadd! dracula
 syntax enable
-colorscheme dracula
+colorscheme synthwave84
 set background=dark
 set cursorcolumn
 set cursorline
@@ -71,12 +70,3 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"" VIM RAINBOW
-let g:rainbow_active=1
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-
