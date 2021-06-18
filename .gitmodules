@@ -1,12 +1,9 @@
 [submodule "vim/pack/my-plugins/start/vim-polyglot"]
 	path = vim/pack/my-plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "vim/pack/my-plugins/start/onedark.vim"]
-	path = vim/pack/my-plugins/start/onedark.vim
-	url = https://github.com/joshdick/onedark.vim
 [submodule "vim/pack/my-plugins/start/coc.nvim"]
 	path = vim/pack/my-plugins/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 [submodule "vim/pack/my-plugins/start/vim"]
-	path = vim/pack/my-plugins/start/dracula
+	path = vim/pack/my-plugins/start/vim
 	url = https://github.com/dracula/vim
