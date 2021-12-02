@@ -1,63 +1,71 @@
-" UI Configuration
-set  nu rnu
-set nocompatible
+" Basic Configuration {{
+set number relativenumber
 filetype plugin indent on
 set encoding=UTF-8
 set showcmd             " show command in bottom bar
 set showmatch           " highlight matching [{()}]
 set wildmenu            " visual autocomplete for command menu
-" Syntax 
-if has("termguicolors")
-    set termguicolors
-endif
 syntax enable
-colorscheme synthwave84
+set clipboard=unnamedplus
 set background=dark
 set cursorcolumn
 set cursorline
-"let g:onedark_termcolors=256
-" Space and Tab
+set foldenable
+set foldmethod=marker
+set foldmarker={{,}}
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set expandtab       " tabs are spaces
 set shiftwidth=4 
 set smarttab
+set mouse=a         " enable mouse
 set autoindent
 set smartindent     " set si
+
 " Searching
 set path+=**        " find global file in main directory
 set incsearch       " search as characters are entered
 set hlsearch        " highlight matches
-let mapleader=" "   " Change leader key to <space> 
-" Disable highlight searching
-nnoremap <leader> <space> :nohlsearch<CR> 
-" Auto update when file change by other editor
 set autoread
 set autowrite
 set noswapfile
 set undofile 
 set nobackup
 set undodir=~/.vim/undodir
-au FocusGained,BufEnter * :silent! checktime " Auto update file when file has chage with other text editor
-set clipboard=unnamedplus
-" HTML 5 
-autocmd FileType scss setl iskeyword+=@-@
+
+" Auto update when file change by other editor
+au FocusGained,BufEnter * :silent! checktime " Auto update file when file has change with other text editor
+"}}
+" BASIC STYLING {{
+if has("termguicolors")
+    set termguicolors
+endif
+colorscheme synthwave84
+set laststatus=2
+" hi! = highlight
+hi! normal ctermbg=NONE guibg=NONE
+hi! comment cterm=italic
 " Split and move
 set splitbelow
 set splitright
-"Max out the height of the current split
-"ctrl + w _
-"Max out the width of the current split
-"ctrl + w |
-"Normalize all split sizes, which is very handy when resizing terminal
-"ctrl + w =
-" Status line config
-set laststatus=2
+"use 'ctrl + w_, ctrl + w| and ctrl + w =' for max out the height, width and
+    "reset split windows
+"}}
+" BASIC KEY BINDING {{
+" Remap Leader Key
+let mapleader=" "   " Change leader key to <space> 
+
+" Disable highlight when search keyword
+nnoremap <leader> <space> :nohlsearch<CR> 
+"}}
+" PLUGIN CONFIGURATION{{
+" Html5
+autocmd FileType scss setl iskeyword+=@-@
 " SNIPPETS:
 nnoremap ,html :-1read $HOME/.vim/basic.html<CR>3jwf>a
 " Omni completion
 set omnifunc=systaxcomplete#Complete
-" Coc config
+" Coc Config
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -70,3 +78,7 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
