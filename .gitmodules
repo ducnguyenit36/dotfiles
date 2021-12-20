@@ -7,3 +7,6 @@
 [submodule "vim/pack/my-plugins/start/vim-synthwave84"]
 	path = vim/pack/my-plugins/start/vim-synthwave84
 	url = https://github.com/artanikin/vim-synthwave84
+[submodule "vim/pack/my-plugins/start/onedark.vim"]
+	path = vim/pack/my-plugins/start/onedark.vim
+	url = https://github.com/joshdick/onedark.vim
