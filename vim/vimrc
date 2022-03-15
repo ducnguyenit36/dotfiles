@@ -40,7 +40,8 @@ au FocusGained,BufEnter * :silent! checktime " Auto update file when file has ch
 if has("termguicolors")
     set termguicolors
 endif
-colorscheme synthwave84
+packadd! onedark.vim
+colorscheme onedark
 set laststatus=2
 " hi! = highlight
 hi! normal ctermbg=NONE guibg=NONE
