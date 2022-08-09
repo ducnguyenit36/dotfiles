@@ -1,1 +1,1 @@
-# My test dotfiles
+# Dotfiles
