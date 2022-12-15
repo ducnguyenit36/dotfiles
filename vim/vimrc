@@ -10,7 +10,7 @@ set clipboard=unnamedplus
 set background=dark
 set cursorcolumn
 set cursorline
-set foldenable
+set foldenable          "set fold using {{}} for active fold
 set foldmethod=marker
 set foldmarker={{,}}
 set tabstop=4       " number of visual spaces per TAB
@@ -31,7 +31,6 @@ set autowrite
 set noswapfile
 set undofile 
 set nobackup
-set undodir=~/.vim/undodir
 
 " Auto update when file change by other editor
 au FocusGained,BufEnter * :silent! checktime " Auto update file when file has change with other text editor
@@ -42,7 +41,7 @@ if has("termguicolors")
 endif
 packadd! onedark.vim
 colorscheme onedark
-" hi! = highlight
+" hi! = highlight "
 hi! normal ctermbg=NONE guibg=NONE
 hi! comment cterm=italic
 " Split and move
@@ -61,7 +60,7 @@ nnoremap <leader> <space> :nohlsearch<CR>
 " PLUGIN CONFIGURATION{{
 " Html5
 autocmd FileType scss setl iskeyword+=@-@
-" SNIPPETS:
+" SNIPPETS: " html form when type ,html in nomalmode in file basic.html"
 nnoremap ,html :-1read $HOME/.vim/basic.html<CR>3jwf>a
 " Omni completion
 set omnifunc=systaxcomplete#Complete
@@ -82,11 +81,12 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <c-@> coc#refresh()
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+" set reset vimrc file to $MYVIMRC
 augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
-nmap <leader>e :CocCommand explorer<CR>
+"nmap <leader>e :CocCommand explorer<CR>
 " Status line
 set laststatus=2
 set statusline= 
